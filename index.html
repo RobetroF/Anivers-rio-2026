@@ -435,16 +435,15 @@ h1 {
 
 <body>
 
-<audio id="musica" loop preload="auto">
-    <source src="musica.mp3" type="audio/mpeg">
-</audio>
+<div id="youtubePlayer" style="position:fixed;width:1px;height:1px;left:-9999px;top:-9999px;"></div>
+<script src="https://www.youtube.com/iframe_api"></script>
 
 <div id="entradaMusical" class="entrada-musical">
     <div class="entrada-conteudo">
         <div class="kicker">RIO DE JANEIRO · 2026</div>
         <div class="entrada-titulo">Aniversário do Roberto edição 26</div>
         <div class="entrada-texto">Clique para entrar no convite com música.</div>
-        <button class="botao-entrar" onclick="entrarComMusica()">COMEÇAR</button>
+        <button id="botaoEntrar" class="botao-entrar" type="button">COMEÇAR</button>
     </div>
 </div>
 
@@ -712,36 +711,53 @@ h1 {
 
 <script>
 
-const musica = document.getElementById('musica');
+let player;
+let youtubePronto = false;
 const entradaMusical = document.getElementById('entradaMusical');
 const controleMusica = document.getElementById('controleMusica');
+const botaoEntrar = document.getElementById('botaoEntrar');
 
-async function entrarComMusica() {
-    musica.volume = 0.35;
-
-    try {
-        await musica.play();
-        controleMusica.textContent = 'MÚSICA: ON';
-    } catch (erro) {
-        console.log('Não foi possível iniciar o áudio:', erro);
-        controleMusica.textContent = 'MÚSICA: OFF';
-    }
-
-    entradaMusical.classList.add('oculta');
-    controleMusica.style.display = 'block';
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('youtubePlayer', {
+        height: '1',
+        width: '1',
+        videoId: 'SRApksa-3RQ',
+        playerVars: {
+            autoplay: 0,
+            controls: 0,
+            playsinline: 1,
+            rel: 0,
+            start: 15
+        },
+        events: {
+            onReady: function() { youtubePronto = true; }
+        }
+    });
 }
 
-async function alternarMusica() {
-    if (musica.paused) {
-        try {
-            await musica.play();
-            controleMusica.textContent = 'MÚSICA: ON';
-        } catch (erro) {
-            console.log(erro);
-        }
+function entrarComMusica() {
+    entradaMusical.classList.add('oculta');
+    controleMusica.style.display = 'block';
+    if (youtubePronto && player) {
+        player.seekTo(15, true);
+        player.playVideo();
+        controleMusica.textContent = 'MÚSICA: ON';
     } else {
-        musica.pause();
         controleMusica.textContent = 'MÚSICA: OFF';
+    }
+}
+
+botaoEntrar.addEventListener('click', entrarComMusica);
+
+function alternarMusica() {
+    if (!youtubePronto || !player) return;
+    const estado = player.getPlayerState();
+    if (estado === YT.PlayerState.PLAYING) {
+        player.pauseVideo();
+        controleMusica.textContent = 'MÚSICA: OFF';
+    } else {
+        player.playVideo();
+        controleMusica.textContent = 'MÚSICA: ON';
     }
 }
 
@@ -753,7 +769,7 @@ async function compartilhar() {
             'Aniversário',
 
         text:
-            f'Começando às 12:00 '
+            'Começando às 12:00 '
             + 'na Praça XV. '
             + 'Veja a rota:',
 
