@@ -37,6 +37,7 @@ html {
 
 body {
     margin:0;
+
     min-height:100vh;
 
     font-family:
@@ -54,11 +55,14 @@ body {
     color:#f4f4f4;
 
     display:flex;
+
     justify-content:center;
 }
 
+
 .container {
     width:100%;
+
     max-width:620px;
 
     padding:
@@ -67,21 +71,23 @@ body {
 }
 
 
-/* =========================================================
-   HERO
-========================================================= */
-
 .hero {
     text-align:center;
+
     margin-bottom:38px;
 }
 
+
 .kicker {
     text-transform:uppercase;
+
     letter-spacing:4px;
+
     font-size:11px;
+
     opacity:.5;
 }
+
 
 h1 {
     font-size:
@@ -97,11 +103,15 @@ h1 {
     line-height:1;
 }
 
+
 .subtitle {
     font-size:17px;
+
     opacity:.68;
+
     line-height:1.5;
 }
+
 
 .start {
     margin-top:22px;
@@ -134,10 +144,6 @@ h1 {
 }
 
 
-/* =========================================================
-   ROTA
-========================================================= */
-
 .route {
     background:
         rgba(
@@ -165,9 +171,12 @@ h1 {
         blur(10px);
 }
 
+
 .stop {
     display:flex;
+
     gap:16px;
+
     align-items:center;
 
     padding:
@@ -183,9 +192,11 @@ h1 {
         );
 }
 
+
 .stop:last-child {
     border-bottom:none;
 }
+
 
 .number {
     width:38px;
@@ -194,16 +205,12 @@ h1 {
     border-radius:50%;
 
     border:
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            .25
-        );
+        2px solid white;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     font-weight:bold;
@@ -211,28 +218,31 @@ h1 {
     flex:none;
 }
 
+
 .time {
     font-size:12px;
+
     opacity:.5;
 }
 
+
 .place {
     font-weight:600;
+
     font-size:17px;
+
     margin-top:4px;
 }
 
-
-/* =========================================================
-   BOTÕES
-========================================================= */
 
 .buttons {
     margin-top:25px;
 
     display:grid;
+
     gap:12px;
 }
+
 
 .button {
     display:block;
@@ -261,20 +271,25 @@ h1 {
     border:0;
 }
 
+
 .button:hover {
     transform:
         translateY(-1px);
 }
+
 
 .button:active {
     transform:
         scale(.99);
 }
 
+
 .primary {
     background:#f4f4f4;
+
     color:#111;
 }
+
 
 .secondary {
     background:
@@ -298,10 +313,6 @@ h1 {
 }
 
 
-/* =========================================================
-   TEXTO FINAL
-========================================================= */
-
 .note {
     margin-top:30px;
 
@@ -313,6 +324,7 @@ h1 {
 
     line-height:1.7;
 }
+
 
 .footer {
     text-align:center;
@@ -327,10 +339,6 @@ h1 {
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
-
 @media (max-width:500px) {
 
     .container {
@@ -339,10 +347,12 @@ h1 {
             50px;
     }
 
+
     .route {
         padding:
             10px 17px;
     }
+
 
     .stop {
         padding:
@@ -374,14 +384,21 @@ h1 {
 
 
         <div class="subtitle">
-            Um sábado entre o Centro e a Tijuca.
+            Um sábado entre
+            o Centro e a Tijuca.
         </div>
 
 
         <div class="start">
+
             Início às
-            <b>11:00</b>
+
+            <b>
+                12:00
+            </b>
+
             na Praça XV
+
         </div>
 
     </section>
@@ -392,15 +409,27 @@ h1 {
         
         <div class="stop">
 
-            <div class="number">
+            <div
+                class="number"
+
+                style="
+                    border-color:
+                        #2563eb;
+
+                    color:
+                        #2563eb;
+                "
+            >
                 1
             </div>
+
 
             <div>
 
                 <div class="time">
-                    11:00
+                    12:00
                 </div>
+
 
                 <div class="place">
                     Praça XV
@@ -412,15 +441,27 @@ h1 {
         
         <div class="stop">
 
-            <div class="number">
+            <div
+                class="number"
+
+                style="
+                    border-color:
+                        #7c3aed;
+
+                    color:
+                        #7c3aed;
+                "
+            >
                 2
             </div>
+
 
             <div>
 
                 <div class="time">
-                    12:53
+                    13:53
                 </div>
+
 
                 <div class="place">
                     Rua do Senado / Lavradio
@@ -432,15 +473,27 @@ h1 {
         
         <div class="stop">
 
-            <div class="number">
+            <div
+                class="number"
+
+                style="
+                    border-color:
+                        #b7791f;
+
+                    color:
+                        #b7791f;
+                "
+            >
                 3
             </div>
+
 
             <div>
 
                 <div class="time">
-                    14:48
+                    15:48
                 </div>
+
 
                 <div class="place">
                     Bafo da Prainha
@@ -452,15 +505,27 @@ h1 {
         
         <div class="stop">
 
-            <div class="number">
+            <div
+                class="number"
+
+                style="
+                    border-color:
+                        #ea580c;
+
+                    color:
+                        #ea580c;
+                "
+            >
                 4
             </div>
+
 
             <div>
 
                 <div class="time">
-                    16:29
+                    17:29
                 </div>
+
 
                 <div class="place">
                     Bar do Momo
@@ -472,15 +537,27 @@ h1 {
         
         <div class="stop">
 
-            <div class="number">
+            <div
+                class="number"
+
+                style="
+                    border-color:
+                        #16a34a;
+
+                    color:
+                        #16a34a;
+                "
+            >
                 5
             </div>
+
 
             <div>
 
                 <div class="time">
-                    19:33
+                    20:33
                 </div>
+
 
                 <div class="place">
                     Nevada Bar
@@ -496,20 +573,35 @@ h1 {
 
     <div class="buttons">
 
+
         <a
-            class="button primary"
-            href="mapa.html"
+            class="
+                button
+                primary
+            "
+
+            href="
+                mapa.html
+            "
         >
             ABRIR MAPA
         </a>
 
 
         <button
-            class="button secondary"
-            onclick="compartilhar()"
+
+            class="
+                button
+                secondary
+            "
+
+            onclick="
+                compartilhar()
+            "
         >
             COMPARTILHAR CONVITE
         </button>
+
 
     </div>
 
@@ -520,13 +612,16 @@ h1 {
 
         <br>
 
-        A rota pode mudar durante o dia.
+        A rota pode mudar
+        durante o dia.
 
     </div>
 
 
     <div class="footer">
+
         RIO DE JANEIRO · 2026
+
     </div>
 
 
@@ -543,7 +638,8 @@ async function compartilhar() {
             'Aniversário',
 
         text:
-            'Começando às 11h na Praça XV. '
+            'Começando às 11h '
+            + 'na Praça XV. '
             + 'Veja a rota:',
 
         url:
@@ -552,7 +648,9 @@ async function compartilhar() {
     };
 
 
-    if (navigator.share) {
+    if (
+        navigator.share
+    ) {
 
         try {
 
@@ -576,7 +674,8 @@ async function compartilhar() {
 
         try {
 
-            await navigator.clipboard
+            await navigator
+                .clipboard
                 .writeText(
                     window.location.href
                 );
@@ -591,7 +690,8 @@ async function compartilhar() {
 
             alert(
                 'Copie o endereço '
-                + 'do navegador para compartilhar.'
+                + 'do navegador '
+                + 'para compartilhar.'
             );
 
         }
