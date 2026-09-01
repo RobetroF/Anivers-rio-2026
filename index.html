@@ -1,0 +1,608 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="
+        width=device-width,
+        initial-scale=1.0
+    "
+>
+
+<meta
+    name="theme-color"
+    content="#090c12"
+>
+
+<title>
+    Aniversário
+</title>
+
+
+<style>
+
+* {
+    box-sizing:border-box;
+}
+
+html {
+    scroll-behavior:smooth;
+}
+
+body {
+    margin:0;
+    min-height:100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #252b38,
+            #090c12 58%
+        );
+
+    color:#f4f4f4;
+
+    display:flex;
+    justify-content:center;
+}
+
+.container {
+    width:100%;
+    max-width:620px;
+
+    padding:
+        60px 22px
+        70px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    text-align:center;
+    margin-bottom:38px;
+}
+
+.kicker {
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:11px;
+    opacity:.5;
+}
+
+h1 {
+    font-size:
+        clamp(
+            40px,
+            9vw,
+            64px
+        );
+
+    margin:
+        14px 0 12px;
+
+    line-height:1;
+}
+
+.subtitle {
+    font-size:17px;
+    opacity:.68;
+    line-height:1.5;
+}
+
+.start {
+    margin-top:22px;
+
+    display:inline-block;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .08
+        );
+
+    padding:
+        11px 18px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .08
+        );
+}
+
+
+/* =========================================================
+   ROTA
+========================================================= */
+
+.route {
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .06
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .08
+        );
+
+    border-radius:20px;
+
+    padding:
+        14px 20px;
+
+    backdrop-filter:
+        blur(10px);
+}
+
+.stop {
+    display:flex;
+    gap:16px;
+    align-items:center;
+
+    padding:
+        17px 2px;
+
+    border-bottom:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .08
+        );
+}
+
+.stop:last-child {
+    border-bottom:none;
+}
+
+.number {
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .25
+        );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-weight:bold;
+
+    flex:none;
+}
+
+.time {
+    font-size:12px;
+    opacity:.5;
+}
+
+.place {
+    font-weight:600;
+    font-size:17px;
+    margin-top:4px;
+}
+
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+
+.buttons {
+    margin-top:25px;
+
+    display:grid;
+    gap:12px;
+}
+
+.button {
+    display:block;
+
+    width:100%;
+
+    text-align:center;
+
+    padding:
+        17px 15px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:
+        transform .15s ease,
+        opacity .15s ease;
+
+    border:0;
+}
+
+.button:hover {
+    transform:
+        translateY(-1px);
+}
+
+.button:active {
+    transform:
+        scale(.99);
+}
+
+.primary {
+    background:#f4f4f4;
+    color:#111;
+}
+
+.secondary {
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .08
+        );
+
+    color:white;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .12
+        );
+}
+
+
+/* =========================================================
+   TEXTO FINAL
+========================================================= */
+
+.note {
+    margin-top:30px;
+
+    text-align:center;
+
+    opacity:.46;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+.footer {
+    text-align:center;
+
+    margin-top:45px;
+
+    opacity:.25;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width:500px) {
+
+    .container {
+        padding:
+            42px 17px
+            50px;
+    }
+
+    .route {
+        padding:
+            10px 17px;
+    }
+
+    .stop {
+        padding:
+            15px 0;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+    <section class="hero">
+
+        <div class="kicker">
+            Rio de Janeiro
+        </div>
+
+
+        <h1>
+            Aniversário
+        </h1>
+
+
+        <div class="subtitle">
+            Um sábado entre o Centro e a Tijuca.
+        </div>
+
+
+        <div class="start">
+            Início às
+            <b>11:00</b>
+            na Praça XV
+        </div>
+
+    </section>
+
+
+    <section class="route">
+
+        
+        <div class="stop">
+
+            <div class="number">
+                1
+            </div>
+
+            <div>
+
+                <div class="time">
+                    11:00
+                </div>
+
+                <div class="place">
+                    Praça XV
+                </div>
+
+            </div>
+
+        </div>
+        
+        <div class="stop">
+
+            <div class="number">
+                2
+            </div>
+
+            <div>
+
+                <div class="time">
+                    12:53
+                </div>
+
+                <div class="place">
+                    Rua do Senado / Lavradio
+                </div>
+
+            </div>
+
+        </div>
+        
+        <div class="stop">
+
+            <div class="number">
+                3
+            </div>
+
+            <div>
+
+                <div class="time">
+                    14:48
+                </div>
+
+                <div class="place">
+                    Bafo da Prainha
+                </div>
+
+            </div>
+
+        </div>
+        
+        <div class="stop">
+
+            <div class="number">
+                4
+            </div>
+
+            <div>
+
+                <div class="time">
+                    16:29
+                </div>
+
+                <div class="place">
+                    Bar do Momo
+                </div>
+
+            </div>
+
+        </div>
+        
+        <div class="stop">
+
+            <div class="number">
+                5
+            </div>
+
+            <div>
+
+                <div class="time">
+                    19:33
+                </div>
+
+                <div class="place">
+                    Nevada Bar
+                </div>
+
+            </div>
+
+        </div>
+        
+
+    </section>
+
+
+    <div class="buttons">
+
+        <a
+            class="button primary"
+            href="mapa.html"
+        >
+            ABRIR MAPA
+        </a>
+
+
+        <button
+            class="button secondary"
+            onclick="compartilhar()"
+        >
+            COMPARTILHAR CONVITE
+        </button>
+
+    </div>
+
+
+    <div class="note">
+
+        Os horários são estimativas.
+
+        <br>
+
+        A rota pode mudar durante o dia.
+
+    </div>
+
+
+    <div class="footer">
+        RIO DE JANEIRO · 2026
+    </div>
+
+
+</div>
+
+
+<script>
+
+async function compartilhar() {
+
+    const dados = {
+
+        title:
+            'Aniversário',
+
+        text:
+            'Começando às 11h na Praça XV. '
+            + 'Veja a rota:',
+
+        url:
+            window.location.href
+
+    };
+
+
+    if (navigator.share) {
+
+        try {
+
+            await navigator.share(
+                dados
+            );
+
+        }
+
+        catch (erro) {
+
+            console.log(
+                erro
+            );
+
+        }
+
+    }
+
+    else {
+
+        try {
+
+            await navigator.clipboard
+                .writeText(
+                    window.location.href
+                );
+
+            alert(
+                'Link copiado.'
+            );
+
+        }
+
+        catch {
+
+            alert(
+                'Copie o endereço '
+                + 'do navegador para compartilhar.'
+            );
+
+        }
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
