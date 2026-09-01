@@ -339,6 +339,73 @@ h1 {
 }
 
 
+.entrada-musical {
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    background:#090c12;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    transition:opacity .7s ease, visibility .7s ease;
+}
+
+.entrada-musical.oculta {
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.entrada-conteudo {
+    width:100%;
+    max-width:520px;
+    text-align:center;
+}
+
+.entrada-titulo {
+    font-size:clamp(36px, 9vw, 62px);
+    font-weight:bold;
+    line-height:1;
+    margin:14px 0 18px;
+}
+
+.entrada-texto {
+    opacity:.62;
+    line-height:1.6;
+    margin-bottom:28px;
+}
+
+.botao-entrar {
+    width:100%;
+    border:0;
+    border-radius:12px;
+    padding:17px 20px;
+    background:#f4f4f4;
+    color:#111;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.controle-musica {
+    position:fixed;
+    right:16px;
+    bottom:16px;
+    z-index:9000;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:30px;
+    padding:10px 14px;
+    background:rgba(9,12,18,.82);
+    color:white;
+    backdrop-filter:blur(10px);
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:.6px;
+    cursor:pointer;
+    display:none;
+}
+
 @media (max-width:500px) {
 
     .container {
@@ -367,6 +434,21 @@ h1 {
 
 
 <body>
+
+<audio id="musica" loop preload="auto">
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<div id="entradaMusical" class="entrada-musical">
+    <div class="entrada-conteudo">
+        <div class="kicker">RIO DE JANEIRO · 2026</div>
+        <div class="entrada-titulo">Aniversário do Roberto edição 26</div>
+        <div class="entrada-texto">Clique para entrar no convite com música.</div>
+        <button class="botao-entrar" onclick="entrarComMusica()">COMEÇAR</button>
+    </div>
+</div>
+
+<button id="controleMusica" class="controle-musica" onclick="alternarMusica()">MÚSICA: ON</button>
 
 <div class="container">
 
@@ -630,6 +712,39 @@ h1 {
 
 <script>
 
+const musica = document.getElementById('musica');
+const entradaMusical = document.getElementById('entradaMusical');
+const controleMusica = document.getElementById('controleMusica');
+
+async function entrarComMusica() {
+    musica.volume = 0.35;
+
+    try {
+        await musica.play();
+        controleMusica.textContent = 'MÚSICA: ON';
+    } catch (erro) {
+        console.log('Não foi possível iniciar o áudio:', erro);
+        controleMusica.textContent = 'MÚSICA: OFF';
+    }
+
+    entradaMusical.classList.add('oculta');
+    controleMusica.style.display = 'block';
+}
+
+async function alternarMusica() {
+    if (musica.paused) {
+        try {
+            await musica.play();
+            controleMusica.textContent = 'MÚSICA: ON';
+        } catch (erro) {
+            console.log(erro);
+        }
+    } else {
+        musica.pause();
+        controleMusica.textContent = 'MÚSICA: OFF';
+    }
+}
+
 async function compartilhar() {
 
     const dados = {
@@ -638,7 +753,7 @@ async function compartilhar() {
             'Aniversário',
 
         text:
-            'Começando às 11h '
+            f'Começando às 12:00 '
             + 'na Praça XV. '
             + 'Veja a rota:',
 
